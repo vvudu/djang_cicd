@@ -2,11 +2,11 @@ name: Testing and deployment
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   testing:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     env:
       SECRET_KEY: ${{ secrets.SECRET }}
       DEBUG: ${{ secrets.DEBUG_MODE }}
@@ -66,4 +66,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: expect /home/adilet/django_cicd/deploy.exp
+          script: expect /root/django_cicd/deploy.exp
